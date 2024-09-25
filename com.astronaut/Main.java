@@ -8,7 +8,7 @@ public class Main {
     private static final ScheduleManager scheduleManager = ScheduleManager.getInstance();
 
     public static void main(String[] args) {
-        // Add an observer for conflict notifications
+        // Adding an observer for conflict notifications
         TaskObserver conflictNotifier = new TaskConflictNotifier();
         scheduleManager.addObserver(conflictNotifier);
 
