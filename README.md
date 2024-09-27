@@ -1,2 +1,2 @@
 # ADSO
- Astronaut Daily Schedule Organizer Programming Exercise
+ Astronaut Daily Schedule Organizer 
