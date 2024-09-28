@@ -1,0 +1,58 @@
+This Java program is a console-based task scheduling application called *Astronaut Daily Schedule Organizer*.
+The key features of the application include adding, editing, viewing, and removing tasks, as well as marking tasks as completed.The program also 
+supports task prioritization (HIGH, MEDIUM, LOW) and notifies the user if a task conflicts with existing ones. Here’s an overview of the key components:
+
+ 1. Main Class (Main.java)
+This is the entry point of the application. It initializes a ScheduleManager (which manages tasks), adds an observer to notify users about task conflicts, 
+and displays a menu with different options for task management.
+
+Key methods:
+- *displayMenu()*: Shows the menu with options like adding/removing tasks, editing tasks, marking tasks as completed, and viewing tasks by priority.
+- *getChoice()*: Validates user input and returns the choice.
+- *addNewTask()*: Prompts the user to input task details (description, time, priority), then adds the task using the ScheduleManager.
+- *removeTask(), **editTask(), **markTaskAsCompleted()*: These methods allow users to modify or manage existing tasks.
+- *viewAllTasks(), **viewTasksByPriority()*: These methods allow users to view tasks in the schedule.
+
+### 2. **Task Class (Task.java)**
+This represents individual tasks, including task properties like description, start time, end time, priority level, and completion status.
+
+- *PriorityLevel Enum*: Defines three priority levels (HIGH, MEDIUM, LOW).
+- *Task Constructor*: Initializes tasks with a description, start and end times, and priority.
+- *toString()*: Formats the task for easy display, showing the time, description, priority, and completion status.
+
+### 3. **TaskFactory Class (TaskFactory.java)**
+This class provides a factory method to create tasks. It ensures that the task's time format is valid using a regular expression.
+
+- *createTask()*: Creates a task, validating the HH:mm format of start and end times.
+
+### 4. **Observer Pattern for Conflict Notification (TaskObserver, TaskConflictNotifier, TaskNotifierSubject)**
+The program uses the *Observer Pattern* to notify users of any task conflicts:
+
+- *TaskObserver Interface*: Provides the update() method that is implemented by concrete observers.
+- *TaskConflictNotifier*: Implements TaskObserver and prints a notification when a task conflict is detected.
+- *TaskNotifierSubject*: Manages a list of observers, allowing tasks to notify observers when a conflict arises.
+
+### 5. **Schedule Manager (ScheduleManager.java)**
+This is a singleton class responsible for managing the task list. It supports adding, removing, and editing tasks, as well as marking them as completed and viewing them by priority.
+
+Key methods:
+- *addTask()*: Adds a task to the schedule, checking for conflicts with existing tasks. If a conflict is found, it notifies the user.
+- *removeTask()*: Removes a task by its description.
+- *editTask()*: Allows editing of task properties such as description, start/end times, and priority.
+- *markTaskAsCompleted()*: Marks a task as completed.
+- *viewTasks()*: Displays all tasks sorted by their start time.
+- *viewTasksByPriority()*: Filters tasks by priority and displays them.
+- *hasConflict()*: Checks for any overlapping tasks that would cause a conflict.
+
+### 6. **Logger Utility (LoggerUtility.java)**
+This class provides logging functionality to log important actions (e.g., when a task is added, removed, edited, or conflicts are detected).
+
+- *logInfo(), **logWarning(), **logError()*: These methods log informational messages, warnings, and errors, respectively.
+
+### Flow of the Program:
+1. The user starts the application, which shows a menu for task management.
+2. The user selects an option (e.g., to add a task), and the program prompts them for input like task description, time, and priority.
+3. The ScheduleManager checks for task conflicts, and if no conflict exists, the task is added.
+4. Tasks can be viewed, edited, marked as completed, or removed, with appropriate notifications for conflicts or missing tasks.
+
+This program is structured using *Object-Oriented Principles* and follows the *Observer Pattern* for conflict notifications.
