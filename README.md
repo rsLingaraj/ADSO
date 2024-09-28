@@ -54,7 +54,7 @@ Logs system events such as task additions, removals, and conflicts, providing in
  Steps to Run
 1. Clone the repository or download the project:
    bash
-   git clone https://github.com/yourusername/astronaut-scheduler.git
+   git clone https://github.com/rsLingaraj/ADSO.git
    cd astronaut-scheduler
    
    
