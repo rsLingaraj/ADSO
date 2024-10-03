@@ -55,7 +55,7 @@ Logs system events such as task additions, removals, and conflicts, providing in
 1. Clone the repository or download the project:
    bash
    git clone https://github.com/rsLingaraj/ADSO.git
-   cd astronaut-scheduler
+   
    
    
 2. Compile and run the Java project:
